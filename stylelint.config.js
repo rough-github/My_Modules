@@ -7,6 +7,9 @@ module.exports = {
 	"rules": {
 		// --limited language feature--
 
+		// Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
+		"no-descending-specificity": true,
+
 		//  Specify percentage or number notation for alpha-values
 		"alpha-value-notation": "number",
 		// Specify number or angle notation for degree hues
@@ -18,9 +21,9 @@ module.exports = {
 		// Disallow units for zero lengths
 		"length-zero-no-unit": true,
 		// Require numeric or named (where possible) font-weight values.
-		"font-weight-notation": "named-where-possible",
+		// "font-weight-notation": "named-where-possible",
 		// Specify a list of allowed functions
-		"function-allowed-list": ["scale", "rgba", "linear-gradient", "unquote"],
+		"function-allowed-list": ["scale", "rgba", "linear-gradient", "unquote", "map-get", "color", "lighten", "darken"],
 		// Specify a list of disallowed functions
 		"function-disallowed-list": [],
 		// Disallow scheme-relative urls
@@ -54,7 +57,7 @@ module.exports = {
 		// Disallow longhand properties that can be combined into one shorthand property.
 		"declaration-block-no-redundant-longhand-properties": true,
 		// Disallow !important within declaration
-		"declaration-no-important": true,
+		// "declaration-no-important": true,
 		// Specify a list of allowed property and unit pairs within declarations
 		// "declaration-property-unit-allowed-list": {
 		//   "font-size": ["em", "px"],
@@ -118,7 +121,7 @@ module.exports = {
 		// Specify a pattern for the selectors of rules nested within rules
 		// "selector-nested-pattern": "^&:(?:hover|focus)$",
 		// Disallow qualifying a selector by type
-		"selector-no-qualifying-type": true,
+		// "selector-no-qualifying-type": true,
 		// Disallow vendor prefixes for selectors
 		"selector-no-vendor-prefix": true,
 		// Specify a list of allowed pseudo-class selectors
@@ -126,21 +129,21 @@ module.exports = {
 		// Specify a list of disallowed pseudo-class selectors
 		"selector-pseudo-class-disallowed-list": [],
 		// Specify single or double colon notation for applicable pseudo-elements
-		"selector-pseudo-element-colon-notation": "double",
+		// "selector-pseudo-element-colon-notation": "double",
 		// Specify a list of disallowed pseudo-element selectors
 		// "selector-pseudo-element-disallowed-list": ["before", "/^my-/i"],
 		// Specify a list of allowed media feature names.
-		"media-feature-name-allowed-list": ["max-width"],
+		"media-feature-name-allowed-list": ["max-width","min-width"],
 		// Specify a list of disallowed media feature names
-		"media-feature-name-disallowed-list": ["min-width"],
+		"media-feature-name-disallowed-list": [],
 		// Disallow vendor prefixes for media feature names.
 		"media-feature-name-no-vendor-prefix": true,
 		// Specify a list of allowed media feature name and value pairs.
-		"media-feature-name-value-allowed-list": {"max-width": ["768px", "1024px"]},
+		// "media-feature-name-value-allowed-list": {"max-width": ["768px", "1024px"]},
 		// Specify a pattern for custom media query names.
 		// "custom-media-pattern": "foo-.+",
 		// Specify a list of allowed at-rules.
-		"at-rule-allowed-list": ["import", "keyframes", "media", "while", "include", "mixin"],
+		"at-rule-allowed-list": ["import", "keyframes", "media", "while", "include", "mixin", "function", "if", "return", "warn", "each", "else"],
 		// Specify a list of disallowed at-rules.
 		"at-rule-disallowed-list": ["extends"],
 		// Disallow vendor prefixes for at-rules.
