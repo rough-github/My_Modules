@@ -111,7 +111,7 @@ module.exports = {
 		// Limit the number of ID selectors in a selector
 		"selector-max-id": 2,
 		// Limit the number of pseudo-classes in a selector
-		"selector-max-pseudo-class": 1,
+		"selector-max-pseudo-class": 2,
 		// Limit the specificity of selectors
 		// "selector-max-specificity": "0,2,0",
 		// Limit the number of type selectors in a selector
@@ -143,7 +143,7 @@ module.exports = {
 		// Specify a pattern for custom media query names.
 		// "custom-media-pattern": "foo-.+",
 		// Specify a list of allowed at-rules.
-		"at-rule-allowed-list": ["import", "keyframes", "media", "while", "include", "mixin", "function", "if", "return", "warn", "each", "else"],
+		"at-rule-allowed-list": ["import", "keyframes", "media", "while", "include", "mixin", "function", "if", "return", "warn", "each", "else", "extend"],
 		// Specify a list of disallowed at-rules.
 		"at-rule-disallowed-list": ["extends"],
 		// Disallow vendor prefixes for at-rules.
