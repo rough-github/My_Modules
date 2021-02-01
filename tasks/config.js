@@ -19,8 +19,8 @@ const rootForJS = ({
 })
 
 const rootForImage = ({
-  src: `${ASSET_ROOT}/images/**/*.{png,jpg}`,
-  dest: `${DEST_ROOT}/image`
+  src: `${ASSET_ROOT}/img/**/*.{png,jpg}`,
+  dest: `${DEST_ROOT}/img`
 });
 
 const isProd = process.env.NODE_ENV === 'production'

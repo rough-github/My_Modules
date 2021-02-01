@@ -94,7 +94,7 @@ module.exports = {
 		// Specify a pattern for class selectors
 		// "selector-class-pattern": "foo-[a-z]+"
 		// Specify a list of allowed combinators
-		"selector-combinator-allowed-list": [">", " "],
+		"selector-combinator-allowed-list": [">", " ", "+"],
 		// Specify a list of disallowed combinators
 		// "selector-combinator-disallowed-list": [">", " "]
 		// Specify a pattern for ID selectors
@@ -112,7 +112,7 @@ module.exports = {
 		// Limit the number of ID selectors in a selector
 		"selector-max-id": 2,
 		// Limit the number of pseudo-classes in a selector
-		"selector-max-pseudo-class": 2,
+		// "selector-max-pseudo-class": 2,
 		// Limit the specificity of selectors
 		// "selector-max-specificity": "0,2,0",
 		// Limit the number of type selectors in a selector
