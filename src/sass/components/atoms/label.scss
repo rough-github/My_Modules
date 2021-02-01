@@ -1,0 +1,64 @@
+$label-padding: .2em .3em !default;
+$label-border: 2px solid transparent !default;
+$label-background-color: #e25c00 !default;
+$label-color: #fff !default;
+$label-font-size: .75rem !default;
+$label-font-weight: bold !default;
+
+$label--warning-background-color: #f1de00 !default;
+$label--warning-color: #000 !default;
+
+$label--link-border: 2px solid transparent !default;
+$label--link-transition: .25s !default;
+$label--link--focus-background-color: #fff !default;
+$label--link--focus-color: #e25c00 !default;
+
+$rounded-label-padding: .3em .9em !default;
+$rounded-label-border-radius: 1em !default;
+$rounded-label-background-color: #e25c00 !default;
+$rounded-label-color: #fff !default;
+$rounded-label-font-size: .75rem !default;
+$rounded-label-font-weight: bold !default;
+
+
+.label {
+	// --structure--
+	display: inline-block;
+	padding: $label-padding;
+	border: $label-border;
+	// --skin--
+	background-color: $label-background-color;
+	color: $label-color;
+	font-size: $label-font-size;
+	font-weight: $label-font-weight;
+
+	&.label--warning {
+		background-color: $label--warning-background-color;
+		color: $label--warning-color;
+	}
+
+	&.label--link {
+		border: $label--link-border;
+		text-decoration: none;
+		transition: $label--link-transition;
+
+		&.label--link:focus,
+		&.label--link:hover {
+			background-color: $label--link--focus-background-color;
+			border-color: currentColor;
+			color: $label--link--focus-color;
+		}
+	}
+}
+
+.rounded-label {
+	// --structure--
+	display: inline-block;
+	padding: $rounded-label-padding;
+	border-radius: $rounded-label-border-radius;
+	// --skin--
+	background-color: $rounded-label-background-color;
+	color: $rounded-label-color;
+	font-size: $rounded-label-font-size;
+	font-weight: $rounded-label-font-weight;
+}

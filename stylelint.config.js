@@ -7,6 +7,7 @@ module.exports = {
 	"rules": {
 		// --limited language feature--
 
+
 		// Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
 		"no-descending-specificity": true,
 
@@ -23,7 +24,7 @@ module.exports = {
 		// Require numeric or named (where possible) font-weight values.
 		// "font-weight-notation": "named-where-possible",
 		// Specify a list of allowed functions
-		"function-allowed-list": ["scale", "rgba", "linear-gradient", "unquote", "map-get", "color", "lighten", "darken"],
+		// "function-allowed-list": ["scale", "rgba", "linear-gradient", "unquote", "map-get", "color", "lighten", "darken", "transformY"],
 		// Specify a list of disallowed functions
 		"function-disallowed-list": [],
 		// Disallow scheme-relative urls

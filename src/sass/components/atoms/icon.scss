@@ -1,0 +1,15 @@
+$icon-color: #e25c00 !default;
+$icon-font-weight: 400 !default;
+
+/* This is needed for some mobile phones to display the Google Icon font properly */
+.material-icons {
+	text-rendering: optimizeLegibility;
+	font-feature-settings: "liga";
+}
+
+.before-icon {
+	display: inline-block;
+	margin-right: .3em;
+	color: $icon-color;
+	font-weight: $icon-font-weight;
+}

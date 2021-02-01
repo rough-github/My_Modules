@@ -1,20 +1,22 @@
-// Shared styles
+// button--structure
 $button-border: none !default;
 $button-background-focus: lighten($secondary-color, 4%) !default;
 $button-font-size: 14px !default;
 $button-icon-font-size: 1.3rem !default;
 $button-height: 36px !default;
+$button-width: auto !default;
 $button-padding: 0 16px !default;
 $button-radius: 2px !default;
+// button--skin
+$button-background: $secondary-color !default;
+$button-background-hover: lighten($button-raised-background, 5%) !default;
+$button-color: #fff !default;
+$button-outline: 0;
 
-// Disabled styles
+// .btn.btn--disabled
 $button-disabled-background: #dfdfdf !default;
 $button-disabled-color: #9f9f9f !default;
 
-// Raised buttons
-$button-raised-background: $secondary-color !default;
-$button-raised-background-hover: lighten($button-raised-background, 5%) !default;
-$button-raised-color: #fff !default;
 
 // Large buttons
 $button-large-font-size: 15px !default;
@@ -41,202 +43,99 @@ $button-floating-radius: 50% !default;
 
 
 // ボタンストラクチャー
-.btn,
-.btn-flat {
+.btn {
+	// --Structure--
 	border: $button-border;
 	border-radius: $button-radius;
 	display: inline-block;
 	height: $button-height;
+	width: $button-width;
+	max-width: 100%;
 	line-height: $button-height;
 	padding: $button-padding;
 	text-transform: uppercase;
 	vertical-align: middle;
-	-webkit-tap-highlight-color: transparent; // Gets rid of tap active state
-}
-
-// // Disabled shared style
-// .btn.disabled,
-// .btn-floating.disabled,
-// .btn-large.disabled,
-// .btn-small.disabled,
-// .btn-flat.disabled,
-// .btn:disabled,
-// .btn-floating:disabled,
-// .btn-large:disabled,
-// .btn-small:disabled,
-// .btn-flat:disabled,
-// .btn[disabled],
-// .btn-floating[disabled],
-// .btn-large[disabled],
-// .btn-small[disabled],
-// .btn-flat[disabled] {
-// 	pointer-events: none;
-// 	background-color: $button-disabled-background !important;
-// 	box-shadow: none;
-// 	color: $button-disabled-color !important;
-// 	cursor: default;
-// 	&:hover {
-// 		background-color: $button-disabled-background !important;
-// 		color: $button-disabled-color !important;
-// 	}
-// }
-
-// Shared icon styles
-.btn,
-.btn-floating,
-.btn-large,
-.btn-small,
-.btn-flat {
+	-webkit-tap-highlight-color: transparent;
+	// --Skin--
+	text-decoration: none;
+	color: $button-color;
 	font-size: $button-font-size;
-	outline: 0;
-	i {
+	background-color: $button-background;
+	text-align: center;
+	outline: $button-outline;
+	letter-spacing: .5px;
+	@extend .z-depth-1;
+	transition: background-color .2s ease-out;
+	cursor: pointer;
+
+	& > .btn__icon {
 		font-size: $button-icon-font-size;
 		line-height: inherit;
 	}
-}
 
-// Shared focus button style
-.btn,
-.btn-floating {
-	&:focus {
-		background-color: darken($button-raised-background, 10%);
-	}
-}
-
-// ボタンレイアウト
-.btn {
-	text-decoration: none;
-	color: $button-raised-color;
-	background-color: $button-raised-background;
-	text-align: center;
-	letter-spacing: .5px;
-	// @extend .z-depth-1;
-	transition: background-color .2s ease-out;
-	cursor: pointer;
 	&:hover {
-		background-color: $button-raised-background-hover;
-		// @extend .z-depth-1-half;
-	}
-}
-
-// Floating button
-.btn-floating {
-	i {
-		width: inherit;
-		display: inline-block;
-		text-align: center;
-		color: $button-floating-color;
-		font-size: $button-large-icon-font-size;
-		line-height: $button-floating-size;
-	}
-	&:hover {
-		background-color: $button-floating-background-hover;
+		background-color: $button-background-hover;
 		@extend .z-depth-1-half;
 	}
-	&:before {
-		border-radius: 0;
-	}
-	&.btn-large {
-		&.halfway-fab {
-			bottom: -$button-floating-large-size / 2;
-		}
-		width: $button-floating-large-size;
-		height: $button-floating-large-size;
-		padding: 0;
-		i {
-			line-height: $button-floating-large-size;
-		}
-	}
-
-	&.btn-small {
-		&.halfway-fab {
-			bottom: -$button-floating-small-size / 2;
-		}
-		width: $button-floating-small-size;
-		height: $button-floating-small-size;
-		i {
-			line-height: $button-floating-small-size;
-		}
-	}
-
-	&.halfway-fab {
-		&.left {
-			right: auto;
-			left: 24px;
-		}
-		position: absolute;
-		right: 24px;
-		bottom: -$button-floating-size / 2;
-	}
-	display: inline-block;
-	color: $button-floating-color;
-	position: relative;
-	overflow: hidden;
-	z-index: 1;
-	width: $button-floating-size;
-	height: $button-floating-size;
-	line-height: $button-floating-size;
-	padding: 0;
-	background-color: $button-floating-background;
-	border-radius: $button-floating-radius;
-	@extend .z-depth-1;
-	transition: background-color .3s;
-	cursor: pointer;
-	vertical-align: middle;
-}
-
-// button fix
-button.btn-floating {
-	border: $button-border;
-}
-
-// Flat button
-.btn-flat {
-	box-shadow: none;
-	background-color: transparent;
-	color: $button-flat-color;
-	cursor: pointer;
-	transition: background-color .2s;
-	&:focus,
-	&:hover {
-		box-shadow: none;
-	}
 	&:focus {
-		background-color: rgba(0, 0, 0, .1);
+		background-color: darken($button-background, 10%);
 	}
-	&.disabled,
-	&.btn-flat[disabled] {
-		background-color: transparent !important;
-		color: $button-flat-disabled-color !important;
+
+	&.btn--disabled {
+		pointer-events: none;
+		background-color: $button-disabled-background;
+		box-shadow: none;
+		color: $button-disabled-color;
 		cursor: default;
+		&:hover {
+			background-color: $button-disabled-background;
+			color: $button-disabled-color;
+		}
 	}
-}
 
-// Large button
-.btn-large {
-	@extend .btn;
-	height: $button-large-height;
-	line-height: $button-large-height;
-	font-size: $button-large-font-size;
-	padding: 0 28px;
+	&.btn--large {
+		height: $button-large-height;
+		line-height: $button-large-height;
+		font-size: $button-large-font-size;
+		padding: 0 28px;
 
-	i {
-		font-size: $button-large-icon-font-size;
+		& > .btn--large__icon {
+			font-size: $button-large-icon-font-size;
+		}
 	}
-}
 
-// Small button
-.btn-small {
-	@extend .btn;
-	height: $button-small-height;
-	line-height: $button-small-height;
-	font-size: $button-small-font-size;
-	i {
-		font-size: $button-small-icon-font-size;
+	&.btn--small {
+		height: $button-small-height;
+		line-height: $button-small-height;
+		font-size: $button-small-font-size;
+
+		& > .btn--small__icon {
+			font-size: $button-small-icon-font-size;
+		}
 	}
-}
 
-// Block button
-.btn-block {
-	display: block;
+	&.btn--block {
+		display: block;
+	}
+
+	&.btn--flat {
+		box-shadow: none;
+		background-color: transparent;
+		color: $button-flat-color;
+		cursor: pointer;
+		transition: background-color .2s;
+		&:focus,
+		&:hover {
+			box-shadow: none;
+		}
+		&:focus {
+			background-color: rgba(0, 0, 0, .1);
+		}
+		&.disabled,
+		&.btn-flat[disabled] {
+			background-color: transparent;
+			color: $button-flat-disabled-color;
+			cursor: default;
+		}
+	}
 }
