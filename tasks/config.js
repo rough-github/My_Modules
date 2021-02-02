@@ -7,8 +7,8 @@ const rootForHTML = ({
 })
 
 const rootForCSS = ({
-	lintSrc: `${ASSET_ROOT}/sass/**/*.scss`,
-	src: `${ASSET_ROOT}/sass/main.scss`,
+	watchSrc: `${ASSET_ROOT}/sass/**/*.scss`,
+	mainSrc: `${ASSET_ROOT}/sass/main.scss`,
 	lintDest: `${ASSET_ROOT}/sass`,
 	dest: `${DEST_ROOT}/css`
 });

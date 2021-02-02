@@ -22,7 +22,7 @@ const csscomb = require('gulp-csscomb');
 
 // css lint
 const stylelint = () =>
-		src(rootForCSS.lintSrc)
+		src(rootForCSS.watchSrc)
 		.pipe(changed({ firstPass: true }))
 		// エラー内容を吐く
 		// .pipe(gulpStylelint({
@@ -44,7 +44,7 @@ const style = () => {
 			autoprefixer: { add: true }
 		})
 	];
-	return src(rootForCSS.src)
+	return src(rootForCSS.mainSrc)
 		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(gulpIf(!isProd, sourcemaps.init()))
 		.pipe(sassGlob())

@@ -1,127 +1,97 @@
 // 18. Tables
 // ==========================================================================
 
-$table-border-color: rgba(0, 0, 0, .12) !default;
-$table-striped-color: rgba(242, 242, 242, .5) !default;
+$vertical-table-border: 1px solid #ddd !default;
+$vertical-table-background-color: #efefef !default;
+$vertical-table-cell-padding: 15px !default;
+$vertical-table-border-radius: 2px !default;
 
-table, th, td {
-	border: none;
+$vertical-table-striped-color: rgba(242, 242, 242, .5) !default;
+$vertical-table-striped-border: 1px solid #444 !default;
+
+// vertical-table
+.vertical-table {
+	border: $vertical-table-border;
 }
-
-table {
-	// --structure--
+.vertical-table__inner {
 	width: 100%;
-	display: table;
-	border-collapse: collapse;
-	border-spacing: 0;
-	// --skin--
+	text-align: center;
+	table-layout: fixed;
+	border-radius: $vertical-table-border-radius;
 }
-tr {
-	border-bottom: 1px solid $table-border-color;
+.vertical-table__header-row {
+	background-color: $vertical-table-background-color;
+
+	& > .vertical-table__header {
+		padding: $vertical-table-cell-padding;
+		border-right: $vertical-table-border;
+		border-bottom: $vertical-table-border;
+		font-weight: bold;
+		vertical-align: middle;
+	}
 }
-td, th {
-	padding: 15px 5px;
-	display: table-cell;
-	text-align: left;
+.vertical-table__text {
+	padding: $vertical-table-cell-padding;
+	border-right: $vertical-table-border;
+	border-bottom: $vertical-table-border;
 	vertical-align: middle;
-	border-radius: 2px;
+}
+.vertical-table__header:last-child,
+.vertical-table__text:last-child {
+	border-right-width: 0;
+}
+.vertical-table__body-row:last-child .vertical-table__text {
+	border-bottom-width: 0;
 }
 
-&.striped {
-	tr {
+// vertical-table--highlight
+.vertical-table.vertical-table--highlight {
+	.vertical-table__body-row {
+		transition: background-color .25s ease;
+		&:hover {
+			background-color: $vertical-table-striped-color;
+		}
+	}
+}
+
+// vertical-table--striped
+.vertical-table.vertical-table--striped {
+	.vertical-table__header-row {
+		background-color: #fff;
+	}
+	.vertical-table__header {
+		border-bottom: $vertical-table-striped-border;
+		border-right: none;
+	}
+
+	.vertical-table__text {
+		border-right: none;
 		border-bottom: none;
 	}
 
-	> tbody {
-		> tr:nth-child(odd) {
-			background-color: $table-striped-color;
-		}
-
-		> tr > td {
-			border-radius: 0;
+	.vertical-table__body {
+		& > .vertical-table__body-row:nth-child(odd) {
+			background-color: $vertical-table-striped-color;
 		}
 	}
 }
 
-&.highlight > tbody > tr {
-	transition: background-color .25s ease;
-	&:hover {
-		background-color: $table-striped-color;
+// vertical-table(media-query)
+@media screen and (max-width: 768px) {
+	.vertical-table {
+		border-right-width: 0;
+		overflow-x: auto;
 	}
-}
-
-&.centered {
-	thead tr th, tbody tr td {
-		text-align: center;
+	.vertical-table__inner {
+		width: auto;
+		min-width: 100%;
 	}
-}
-
-// Responsive Table
-@media #{$medium-and-down} {
-
-	table.responsive-table {
-		width: 100%;
-		border-collapse: collapse;
-		border-spacing: 0;
-		display: block;
-		position: relative;
-
-		td:empty:before {
-			content: "\00a0";
-		}
-
-		th,
-		td {
-			margin: 0;
-			vertical-align: top;
-		}
-
-		th {
-			text-align: left;
-		}
-		thead {
-			display: block;
-			float: left;
-
-			tr {
-				display: block;
-				padding: 0 10px 0 0;
-
-				th::before {
-					content: "\00a0";
-				}
-			}
-		}
-		tbody {
-			display: block;
-			width: auto;
-			position: relative;
-			overflow-x: auto;
-			white-space: nowrap;
-
-			tr {
-				display: inline-block;
-				vertical-align: top;
-			}
-		}
-		th {
-			display: block;
-			text-align: right;
-		}
-		td {
-			display: block;
-			min-height: 1.25em;
-			text-align: left;
-		}
-		tr {
-			border-bottom: none;
-			padding: 0 10px;
-		}
-
-		/* sort out borders */
-		thead {
-			border: 0;
-			border-right: 1px solid $table-border-color;
-		}
+	.vertical-table__header,
+	.vertical-table__text {
+		white-space: nowrap;
+	}
+	.vertical-table__header:last-child,
+	.vertical-table__text:last-child {
+		border-right-width: 1px;
 	}
 }

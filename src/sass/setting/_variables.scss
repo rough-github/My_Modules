@@ -127,6 +127,18 @@ $gutter-width: 1.5rem !default;
 $element-top-margin: $gutter-width/3 !default;
 $element-bottom-margin: ($gutter-width*2)/3 !default;
 
+// 18. Tables
+// ==========================================================================
+
+$vertical-table-border: 1px solid #ddd !default;
+$vertical-table-background-color: #efefef !default;
+$vertical-table-cell-padding: 15px !default;
+$vertical-table-border-radius: 2px !default;
+
+$vertical-table-striped-color: rgba(242, 242, 242, .5) !default;
+$vertical-table-striped-border: 1px solid #444 !default;
+
+
 // 20. Typography
 // ==========================================================================
 

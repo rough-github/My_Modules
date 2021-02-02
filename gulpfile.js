@@ -20,7 +20,7 @@ const {clean} = require('./tasks/clean');
  */
 const watchFiles = () => {
   // Sass
-  watch(rootForCSS.src, series(css, reload));
+  watch(rootForCSS.watchSrc, series(css, reload));
   // Templates
   watch(
     rootForHTML.src,
