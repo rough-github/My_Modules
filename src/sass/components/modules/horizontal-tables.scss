@@ -1,0 +1,59 @@
+// 18-2. Horizontal Tables
+// ==========================================================================
+
+$horizontal-table-border: 1px solid #ddd !default;
+$horizontal-table-hover-color: #ddd !default;
+$horizontal-table-cell-padding: 15px !default;
+$horizontal-table-header-width: 20% !default;
+$horizontal-table-text-width: 30% !default;
+$horizontal-table-header-background-color: #efefef !default;
+
+// .horizontal-table
+.horizontal-table {
+	border: $horizontal-table-border;
+}
+.horizontal-table__inner {
+	width: 100%;
+}
+.horizontal-table__header {
+	width: $horizontal-table-header-width;
+	padding: $horizontal-table-cell-padding;
+	background-color: #efefef;
+	border-bottom: $horizontal-table-border;
+	font-weight: bold;
+	vertical-align: middle;
+}
+.horizontal-table__text {
+	width: $horizontal-table-text-width;
+	padding: $horizontal-table-cell-padding;
+	border-bottom: $horizontal-table-border;
+}
+.horizontal-table__row:last-child .horizontal-table__header,
+.horizontal-table__row:last-child .horizontal-table__text {
+	border-bottom-width: 0;
+}
+
+// .horizontal-table--highlight
+.horizontal-table.horizontal-table--highlight {
+	.horizontal-table__text {
+		transition: background-color .25s ease;
+
+		&:hover {
+			background-color: $horizontal-table-hover-color;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.horizontal-table--md-scroll {
+		border-right-width: 0;
+		overflow-x: auto;
+	}
+	.horizontal-table--md-scroll .horizontal-table__header,
+	.horizontal-table--md-scroll .horizontal-table__text {
+		white-space: nowrap;
+	}
+	.horizontal-table--md-scroll .horizontal-table__text {
+		border-right: $horizontal-table-border;
+	}
+}
