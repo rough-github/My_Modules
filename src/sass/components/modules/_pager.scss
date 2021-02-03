@@ -1,0 +1,78 @@
+//  Pager
+// ==========================================================================
+
+$pager-gap: 15px !default;
+$pager-width: 40px;
+$pager-height: 40px;
+$pager-line-height: 40px;
+$pager-link-font-size: 1.5rem;
+$pager-link-font-color: #444;
+
+// Pagination
+.pager {
+	display: flex;
+	overflow-x: auto;
+
+	.pager__inner {
+		display: flex;
+		margin-right: auto;
+		margin-left: auto;
+		& > :last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+.pager__item {
+	margin-right: $pager-gap;
+
+	.pager__link {
+		// --structure--
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 2px;
+		height: $pager-line-height;
+		width: $pager-height;
+		// --skin--
+		color: $pager-link-font-color;
+		font-size: $pager-link-font-size;
+		padding: 0 10px;
+		line-height: $pager-line-height;
+
+		&.pager__link--disabled {
+			cursor: default;
+			color: #999;
+		}
+		&.pager__link--active {
+			color: #fff;
+			background-color: $primary-color;
+			opacity: .75;
+		}
+
+		& > .pager__link-icon {
+			font-size: 2rem;
+		}
+
+		&:not(.pager__link--disabled):hover {
+			color: #fff;
+			background-color: $primary-color;
+			opacity: .75;
+		}
+	}
+}
+
+// @media #{$medium-and-down} {
+// 	.pager {
+// 		width: 100%;
+// 	}
+// 	.pager__inner {
+// 		width: 80%;
+// 		overflow: hidden;
+// 		white-space: nowrap;
+// 	}
+// 	.pager__item:first-child,
+// 	.pager__item:last-child {
+// 		width: 10%;
+// 	}
+// }
