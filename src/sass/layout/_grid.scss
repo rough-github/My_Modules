@@ -14,9 +14,7 @@ $medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
 $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
 
 $num-cols: 12 !default;
-$gutter-width: 1.5rem !default;
-$element-top-margin: $gutter-width/3 !default;
-$element-bottom-margin: ($gutter-width*2)/3 !default;
+$grid-gap: 20px !default;
 
 .container {
 	margin: 0 auto;
@@ -40,32 +38,16 @@ $element-bottom-margin: ($gutter-width*2)/3 !default;
 	padding-bottom: 1rem;
 }
 
-// Mixins to コードの重複を避ける
-@mixin reset-offset {
-	margin-left: auto;
-	left: auto;
-	right: auto;
-}
-
+// !!最後のrowにcolのmarginを消すことを忘れずに!!
 .row {
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 20px;
-
-	// Clear floating children
-	&::after {
-		content: "";
-		display: table;
-		clear: both;
-	}
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-gap: $grid-gap;
 
 	.col {
-		// left向きのフロート
-		float: left;
 		box-sizing: border-box;
-		// 上下のギャップ
-		padding: 0 $gutter-width / 2;
 		min-height: 1px;
+		margin-bottom: $element-bottom-margin;
 
 		// unquote関数 -> ""を消す(数値化)
 		// .col .s* を大量生産しているだけ
@@ -73,8 +55,7 @@ $element-bottom-margin: ($gutter-width*2)/3 !default;
 		@while $i <= $num-cols {
 			$perc: unquote((100 / ($num-cols / $i)) + "%");
 			&.s#{$i} {
-				width: $perc;
-				@include reset-offset;
+				grid-column: span $i;
 			}
 			$i: $i + 1;
 		}
@@ -84,8 +65,7 @@ $element-bottom-margin: ($gutter-width*2)/3 !default;
 			@while $i <= $num-cols {
 				$perc: unquote((100 / ($num-cols / $i)) + "%");
 				&.m#{$i} {
-					width: $perc;
-					@include reset-offset;
+					grid-column: span $i;
 				}
 				$i: $i + 1;
 			}
@@ -96,8 +76,7 @@ $element-bottom-margin: ($gutter-width*2)/3 !default;
 			@while $i <= $num-cols {
 				$perc: unquote((100 / ($num-cols / $i)) + "%");
 				&.l#{$i} {
-					width: $perc;
-					@include reset-offset;
+					grid-column: span $i;
 				}
 				$i: $i + 1;
 			}
@@ -108,18 +87,10 @@ $element-bottom-margin: ($gutter-width*2)/3 !default;
 			@while $i <= $num-cols {
 				$perc: unquote((100 / ($num-cols / $i)) + "%");
 				&.xl#{$i} {
-					width: $perc;
-					@include reset-offset;
+					grid-column: span $i;
 				}
 				$i: $i + 1;
 			}
 		}
 	}
-}
-
-// ネスト
-.col .row {
-	// 両サイドで溝(gutter)の半分ずつ縮小する
-	margin-left: (-1 * $gutter-width / 2);
-	margin-right: (-1 * $gutter-width / 2);
 }

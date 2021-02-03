@@ -1,57 +1,43 @@
+// 23. Collections
+// ==========================================================================
+
+$collection-border-color: #e0e0e0 !default;
+$collection-bg-color: #fff !default;
+$collection-active-bg-color: $secondary-color !default;
+$collection-active-color: lighten($secondary-color, 55%) !default;
+$collection-hover-bg-color: #ddd !default;
+$collection-link-color: $secondary-color !default;
+$collection-line-height: 1.5rem !default;
+
 // Collections
 .collection {
+	// --structure--
 	margin: $element-top-margin 0 $element-bottom-margin 0;
 	border: 1px solid $collection-border-color;
 	border-radius: 2px;
 	overflow: hidden;
 	position: relative;
 
-	.collection-item {
+
+	.collection__item {
 		background-color: $collection-bg-color;
 		line-height: $collection-line-height;
 		padding: 10px 20px;
 		margin: 0;
 		border-bottom: 1px solid $collection-border-color;
 
-		// Avatar Collection
-		&.avatar {
-			min-height: 84px;
-			padding-left: 72px;
-			position: relative;
-
-			// Don't style circles inside preloader classes.
-			&:not(.circle-clipper) > .circle,
-			:not(.circle-clipper) > .circle {
-				position: absolute;
-				width: 42px;
-				height: 42px;
-				overflow: hidden;
-				left: 15px;
-				display: inline-block;
-				vertical-align: middle;
+		&.collection__item--link {
+			display: block;
+			transition: .25s;
+			color: $collection-link-color;
+			&:not(.active):hover {
+				background-color: $collection-hover-bg-color;
 			}
-			i.circle {
-				font-size: 18px;
-				line-height: 42px;
-				color: #fff;
-				background-color: #999;
-				text-align: center;
-			}
+		}
 
-
-			.title {
-				font-size: 16px;
-			}
-
-			p {
-				margin: 0;
-			}
-
-			.secondary-content {
-				position: absolute;
-				top: 16px;
-				right: 16px;
-			}
+		.collection__secondary-content {
+			float: right;
+			color: $secondary-color;
 		}
 
 
@@ -63,39 +49,59 @@
 			background-color: $collection-active-bg-color;
 			color: $collection-active-color;
 
-			.secondary-content {
+			.collection__secondary-content {
 				color: #fff;
 			}
 		}
 	}
-
-	a.collection-item {
-		display: block;
-		transition: .25s;
-		color: $collection-link-color;
-		&:not(.active) {
-			&:hover {
-				background-color: $collection-hover-bg-color;
-			}
-		}
-	}
-
-	&.with-header {
-		.collection-header {
+	&.collection--with-header {
+		.collection__header {
 			background-color: $collection-bg-color;
 			border-bottom: 1px solid $collection-border-color;
 			padding: 10px 20px;
 		}
-		.collection-item {
+
+		& > .collection__item {
 			padding-left: 30px;
 		}
-		.collection-item.avatar {
+		& > .collection__item.collection__item--with-avatar {
 			padding-left: 72px;
 		}
 	}
-}
-// Made less specific to allow easier overriding
-.secondary-content {
-	float: right;
-	color: $secondary-color;
+	// Avatar Collection
+	&.collection--with-avatar {
+		& > .collection__item {
+			min-height: 84px;
+			padding-left: 72px;
+			position: relative;
+			// Don't style circles inside preloader classes.
+			& > .collection__avatar {
+				// --structure--
+				position: absolute;
+				width: 42px;
+				height: 42px;
+				overflow: hidden;
+				left: 15px;
+				display: inline-block;
+				vertical-align: middle;
+				// --skin--
+				font-size: 18px;
+				line-height: 42px;
+				color: #fff;
+				background-color: #999;
+				text-align: center;
+			}
+			.collection__item--title {
+				font-size: 16px;
+			}
+			.collection__item--text {
+				margin: 0;
+			}
+			.collection__secondary-content {
+				position: absolute;
+				top: 16px;
+				right: 16px;
+			}
+		}
+	}
 }

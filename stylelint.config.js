@@ -40,7 +40,7 @@ module.exports = {
 		// Specify the minimum number of milliseconds for time values.
 		"time-min-milliseconds": 100,
 		// Specify a list of allowed units.
-		"unit-allowed-list": ["px", "%", "rem", "em", "deg", "s", "vh"],
+		"unit-allowed-list": ["px", "%", "rem", "em", "deg", "s", "vh", "fr"],
 		// Specify a list of disallowed units
 		"unit-disallowed-list": [],
 		// Disallow redundant values in shorthand properties
@@ -94,7 +94,7 @@ module.exports = {
 		// Specify a pattern for class selectors
 		// "selector-class-pattern": "foo-[a-z]+"
 		// Specify a list of allowed combinators
-		"selector-combinator-allowed-list": [">", " ", "+"],
+		"selector-combinator-allowed-list": [">", " ", "+", "~"],
 		// Specify a list of disallowed combinators
 		// "selector-combinator-disallowed-list": [">", " "]
 		// Specify a pattern for ID selectors
