@@ -14,7 +14,7 @@ const rootForCSS = ({
 });
 const rootForJS = ({
 	src: `${ASSET_ROOT}/js/**/*.js`,
-	lintDest: `${ASSET_ROOT}/js`,
+	lintDest: `${DEST_ROOT}/js`,
   dest: `${DEST_ROOT}/js`,
 })
 

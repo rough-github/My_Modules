@@ -32,7 +32,7 @@
 		// try...catch 文でcatchブロック内で例外オブジェクトを上書きすることを許可しない。
 		"no-ex-assign": 2,
 		// 不必要なboolean型の型変換を許可しない
-		"no-extra-boolean-cast": 2,
+		"no-extra-boolean-cast": 0,
 		// 不必要なセミコロンを許可しない
 		"no-extra-semi": 2,
 		// 関数宣言として記述された関数への上書きを許可しない
