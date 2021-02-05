@@ -111,7 +111,7 @@ var $jscomp$this = this;
     if (!h.col(a))
       try {
         return document.querySelectorAll(a);
-      } catch (c) {}
+      } catch (c) {return}
   }
   function r(a, c) {
     for (var d = a.length, b = 2 <= arguments.length ? arguments[1] : void 0, f = [], n = 0; n < d; n++)

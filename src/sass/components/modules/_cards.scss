@@ -140,7 +140,7 @@ $card-link-color-light: lighten($card-link-color, 20%) !default;
 	z-index: 3;
 	display: none;
 
-	.card-title {
+	.card__reveal--title {
 		cursor: pointer;
 		display: block;
 	}
