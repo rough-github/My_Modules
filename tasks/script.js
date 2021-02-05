@@ -36,4 +36,7 @@ const script = () =>
 	.pipe(gulpIf(isProd, rename({extname: ".min.js"})))
 	.pipe(dest(rootForJS.dest));
 
-exports.js = series(scriptlint, script);
+// exports.js = series(scriptlint, script);
+
+// リンターのみ
+exports.js = scriptlint;

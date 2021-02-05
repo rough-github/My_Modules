@@ -41,13 +41,13 @@
       this.options = $.extend({}, Collapsible.defaults, options);
 
       // Setup tab indices
-      this.$headers = this.$el.children('li').children('.collapsible-header');
+      this.$headers = this.$el.children('.collapsible__item').children('.collapsible__header');
       this.$headers.attr('tabindex', 0);
 
       this._setupEventHandlers();
 
       // Open first active
-      let $activeBodies = this.$el.children('li.active').children('.collapsible-body');
+      let $activeBodies = this.$el.children('.collapsible__item.active').children('.collapsible__body');
       if (this.options.accordion) {
         // Handle Accordion
         $activeBodies.first().css('display', 'block');
@@ -61,7 +61,9 @@
       return _defaults;
     }
 
+		// plugin.init(this, arguments[0]);で呼び出されている
     static init(els, options) {
+			// thisはこのクラス
       return super.init(this, els, options);
     }
 
@@ -108,12 +110,12 @@
      * @param {Event} e
      */
     _handleCollapsibleClick(e) {
-      let $header = $(e.target).closest('.collapsible-header');
+      let $header = $(e.target).closest('.collapsible__header');
       if (e.target && $header.length) {
         let $collapsible = $header.closest('.collapsible');
         if ($collapsible[0] === this.el) {
-          let $collapsibleLi = $header.closest('li');
-          let $collapsibleLis = $collapsible.children('li');
+          let $collapsibleLi = $header.closest('.collapsible__item');
+          let $collapsibleLis = $collapsible.children('.collapsible__item');
           let isActive = $collapsibleLi[0].classList.contains('active');
           let index = $collapsibleLis.index($collapsibleLi);
 
@@ -141,9 +143,9 @@
      * @param {Number} index - 0th index of slide
      */
     _animateIn(index) {
-      let $collapsibleLi = this.$el.children('li').eq(index);
+      let $collapsibleLi = this.$el.children('.collapsible__item').eq(index);
       if ($collapsibleLi.length) {
-        let $body = $collapsibleLi.children('.collapsible-body');
+        let $body = $collapsibleLi.children('.collapsible__body');
 
         anim.remove($body[0]);
         $body.css({
@@ -191,9 +193,9 @@
      * @param {Number} index - 0th index of slide to open
      */
     _animateOut(index) {
-      let $collapsibleLi = this.$el.children('li').eq(index);
+      let $collapsibleLi = this.$el.children('.collapsible__item').eq(index);
       if ($collapsibleLi.length) {
-        let $body = $collapsibleLi.children('.collapsible-body');
+        let $body = $collapsibleLi.children('.collapsible__body');
         anim.remove($body[0]);
         $body.css('overflow', 'hidden');
         anim({
@@ -225,7 +227,7 @@
      * @param {Number} index - 0th index of slide
      */
     open(index) {
-      let $collapsibleLi = this.$el.children('li').eq(index);
+      let $collapsibleLi = this.$el.children('.collapsible__item').eq(index);
       if ($collapsibleLi.length && !$collapsibleLi[0].classList.contains('active')) {
         // onOpenStart callback
         if (typeof this.options.onOpenStart === 'function') {
@@ -234,8 +236,8 @@
 
         // Handle accordion behavior
         if (this.options.accordion) {
-          let $collapsibleLis = this.$el.children('li');
-          let $activeLis = this.$el.children('li.active');
+          let $collapsibleLis = this.$el.children('.collapsible__item');
+          let $activeLis = this.$el.children('.collapsible__item.active');
           $activeLis.each((el) => {
             let index = $collapsibleLis.index($(el));
             this.close(index);
@@ -253,7 +255,7 @@
      * @param {Number} index - 0th index of slide
      */
     close(index) {
-      let $collapsibleLi = this.$el.children('li').eq(index);
+      let $collapsibleLi = this.$el.children('.collapsible__item').eq(index);
       if ($collapsibleLi.length && $collapsibleLi[0].classList.contains('active')) {
         // onCloseStart callback
         if (typeof this.options.onCloseStart === 'function') {
@@ -269,6 +271,7 @@
 
   M.Collapsible = Collapsible;
 
+	// プラグインを登録
   if (M.jQueryLoaded) {
     M.initializeJqueryWrapper(Collapsible, 'collapsible', 'M_Collapsible');
   }
