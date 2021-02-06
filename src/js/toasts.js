@@ -18,7 +18,7 @@
        * @member Toast#options
        */
       this.options = $.extend({}, Toast.defaults, options);
-      this.message = this.options.html;
+			this.message = this.options.html;
 
       /**
        * Describes current pan state toast
@@ -62,7 +62,7 @@
      */
     static _createContainer() {
       let container = document.createElement('div');
-      container.setAttribute('id', 'toast-container');
+      container.setAttribute('id', 'toast__container');
 
       // Add event handler
       container.addEventListener('touchstart', Toast._onDragStart);
@@ -185,7 +185,7 @@
 
       // Add custom classes onto toast
       if (!!this.options.classes.length) {
-        $(toast).addClass(this.options.classes);
+        $(toast).addClass(`toast--${this.options.classes}`);
       }
 
       // Set content

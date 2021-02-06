@@ -1,4 +1,12 @@
-#toast-container {
+// 19. Toasts
+// ==========================================================================
+
+$toast-height: 48px !default;
+$toast-color: #323232 !default;
+$toast-text-color: #fff !default;
+$toast-action-color: #eeff41;
+
+#toast__container {
 	display: block;
 	position: fixed;
 	z-index: 10000;
@@ -40,14 +48,14 @@
 	justify-content: space-between;
 	cursor: default;
 
-	.toast-action {
+	.toast__action {
 		color: $toast-action-color;
 		font-weight: 500;
 		margin-right: -25px;
 		margin-left: 3rem;
 	}
 
-	&.rounded {
+	&.toast--rounded {
 		border-radius: 24px;
 	}
 
