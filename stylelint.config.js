@@ -181,7 +181,7 @@ module.exports = {
 		// Limit the number of adjacent empty lines within functions.
 		"function-max-empty-lines": 0,
 		// Specify lowercase or uppercase for function names.
-		"function-name-case": "lower",
+		// "function-name-case": "lower",
 		// Require a newline or disallow whitespace on the inside of the parentheses of functions.
 		"function-parentheses-newline-inside": "always-multi-line",
 		// Require a single space or disallow whitespace on the inside of the parentheses of functions.
@@ -189,7 +189,7 @@ module.exports = {
 		// Require or disallow quotes for urls.
 		"function-url-quotes": "always",
 		// Require or disallow whitespace after functions.
-		"function-whitespace-after": "always",
+		// "function-whitespace-after": "always",
 		// Require or disallow a leading zero for fractional numbers less than 1.
 		"number-leading-zero": "never",
 		// Disallow trailing zeros in numbers.
@@ -199,7 +199,7 @@ module.exports = {
 		// Specify lowercase or uppercase for units
 		"unit-case": "lower",
 		// Specify lowercase or uppercase for keywords values.
-		"value-keyword-case": "lower",
+		// "value-keyword-case": "lower",
 		// Require a newline or disallow whitespace after the commas of value lists.
 		"value-list-comma-newline-after": "always-multi-line",
 		// Require a newline or disallow whitespace before the commas of value lists.
