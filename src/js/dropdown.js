@@ -532,7 +532,7 @@
 
       let positionInfo = this._getDropdownPosition();
       this.dropdownEl.style.left = positionInfo.x + 'px';
-      this.dropdownEl.style.top = positionInfo.y + 'px';
+      this.dropdownEl.style.top = positionInfo.y+ 'px';
       this.dropdownEl.style.height = positionInfo.height + 'px';
       this.dropdownEl.style.width = positionInfo.width + 'px';
       this.dropdownEl.style.transformOrigin = `${

@@ -13,84 +13,76 @@
 </head>
 
 <body>
-	<div class="container">
-		<h1>Navbar</h1>
-		<div class="row">
-			<div class="col s12">
-				<p class="rounded-label">.nav</p>
-				<nav class="nav">
-					<div class="container">
-						<div class="nav__wrapper">
-							<a href="#" class="nav__brand-logo nav__brand-logo--center">Logo</a>
-							<ul class="nav__list nav__list--right" id="nav-mobile" class="hide-on-small-and-down">
-								<li class="nav__item">
-									<a class="nav__link" href="#">Home</a>
-								</li>
-								<li class="nav__item active">
-									<a class="nav__link" href="#">About</a>
-								</li>
-								<li class="nav__item">
-									<a class="nav__link" href="#">Contact</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</nav>
-			</div><!-- /.col s12 -->
-			<div class="col s12">
-				<p class="rounded-label">.nav .dropdown</p>
-				<nav class="nav">
-					<div class="container">
-						<div class="nav__wrapper">
-							<a href="#" class="nav__brand-logo">Logo</a>
-							<ul class="nav__list nav__list--right" class="hide-on-med-and-down">
-								<li class="nav__item">
-									<a class="nav__link" href="#">Home</a>
-								</li>
-								<li class="nav__item">
-									<a class="nav__link" href="#">About</a>
-								</li>
-								<li class="nav__item">
-									<a class="nav__link" href="#">Contact</a>
-								</li>
-								<!-- DROPDOWN TRIGGER -->
-								<li class="nav__item">
-									<a class="nav__link dropdown__trigger" id="dropdown__button" data-target="my-dropdown" href="#!">
-										Dropdown
-										<i class="nav__icon material-icons">arrow_drop_down</i>
-									</a>
-								</li>
-								<!-- BUTTON LINK -->
-								<li class="nav__item">
-									<a class="nav__icon btn">Login</a>
-								</li>
-								<!-- ICON LINK -->
-								<li class="nav__item">
-									<a class="nav__link" href="#">
-										<i class="nav__icon material-icons">person</i>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</nav>
-				<!-- DROPDOWN MENU -->
-				<ul id="my-dropdown" class="dropdown__content">
-					<li class="dropdown__item">
-						<a class="dropdown__link" href="#">Link 1</a>
+	<h1>Navbar</h1>
+	<p class="rounded-label">.nav</p>
+	<nav class="nav">
+		<div class="container">
+			<div class="nav__wrapper">
+				<a href="#" class="nav__brand-logo nav__brand-logo--center">Logo</a>
+				<ul class="hide-on-small-and-down right">
+					<li class="nav__item">
+						<a class="nav__link" href="#">Home</a>
 					</li>
-					<li class="dropdown__item">
-						<a class="dropdown__link" href="#">Link 2</a>
+					<li class="nav__item active">
+						<a class="nav__link" href="#">About</a>
 					</li>
-					<li class="dropdown__item">
-						<a class="dropdown__link" href="#">Link 3</a>
+					<li class="nav__item">
+						<a class="nav__link" href="#">Contact</a>
 					</li>
 				</ul>
-			</div><!-- /.col s12 -->
-		</div><!-- /.row -->
+			</div>
+		</div>
+	</nav>
+	<p class="rounded-label">.nav .dropdown</p>
+	<nav class="nav">
+		<div class="container">
+			<div class="nav__wrapper">
+				<a href="#" class="nav__brand-logo">Logo</a>
+				<ul class="nav__list right hide-on-med-and-down">
+					<li class="nav__item">
+						<a class="nav__link" href="#">Home</a>
+					</li>
+					<li class="nav__item">
+						<a class="nav__link" href="#">About</a>
+					</li>
+					<li class="nav__item">
+						<a class="nav__link" href="#">Contact</a>
+					</li>
 
+					<!-- DROPDOWN TRIGGER -->
+					<li class="nav__item">
+						<a id="dropdown__button" class="nav__link dropdown__trigger" data-target="my-dropdown" href="#!">Dropdown
+							<i class="material-icons right">arrow_drop_down</i>
+						</a>
+					</li>
+					<!-- BUTTON LINK -->
+					<li class="nav__item">
+						<a class="btn nav__link">Login</a>
+					</li>
+					<!-- ICON LINK -->
+					<li class="nav__item">
+						<a class="nav__link" href="#">
+							<i class="material-icons">person</i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-	</div><!-- /.container -->
+	<!-- DROPDOWN MENU -->
+	<ul id="my-dropdown" class="dropdown__content">
+		<li class="dropdown__item">
+			<a class="dropdown__link" href="#">Link 1</a>
+		</li>
+		<li class="dropdown__item">
+			<a class="dropdown__link" href="#">Link 2</a>
+		</li>
+		<li class="dropdown__item">
+			<a class="dropdown__link" href="#">Link 3</a>
+		</li>
+	</ul>
+
 
 	<div style="height: 100px;"></div>
 	<a class="btn btn--block" href="../../../index.html">戻る</a>

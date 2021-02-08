@@ -52,7 +52,41 @@
 		<div class="row">
 			<div class="col m6 s12">
 				<p class="rounded-label">.collapsible expandable</p><br>
-				<ul class="collapsible" data-collpasible="expandable">
+				<ul class="collapsible collapsible--expandable">
+					<li class="collapsible__item">
+						<div class="collapsible__header">
+							<i class="collapsible__icon material-icons">group_work</i><!-- /.collapsible__icon material-ions -->
+							First
+						</div><!-- /.collapsible__header -->
+						<div class="collapsible__body">
+							<span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, necessitatibus.</span>
+						</div><!-- /.collapsible__body -->
+					</li><!-- /.collapsible__item -->
+					<li class="collapsible__item">
+						<div class="collapsible__header">
+							<i class="collapsible__icon material-icons">group_work</i><!-- /.collapsible__icon material-icons -->
+							Second
+						</div><!-- /.collapsible__header -->
+						<div class="collapsible__body">
+							<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, quos.</span>
+						</div><!-- /.collapsible__body -->
+					</li><!-- /.collapsible__item -->
+					<li class="collapsible__item">
+						<div class="collapsible__header">
+							<i class="collapsible__icon material-icons">group_work</i><!-- /.collapsible__icon material-icons -->
+							Third
+						</div><!-- /.collapsible__header -->
+						<div class="collapsible__body">
+							<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, quos.</span>
+						</div><!-- /.collapsible__body -->
+					</li><!-- /.collapsible__item -->
+				</ul><!-- /.collapsible -->
+			</div><!-- /.col m6 s12 -->
+		</div><!-- /.row -->
+		<div class="row">
+			<div class="col m6 s12">
+				<p class="rounded-label">.collapsible popout</p><br>
+				<ul class="collapsible collapsible--popout">
 					<li class="collapsible__item">
 						<div class="collapsible__header">
 							<i class="collapsible__icon material-icons">group_work</i><!-- /.collapsible__icon material-ions -->
@@ -102,6 +136,9 @@
 	<script src="../../../js/collapsible.js"></script>
 	<script>
 		$('.collapsible').collapsible();
+		$('.collapsible--expandable').collapsible({
+			accordion: false
+		});
 	</script>
 </body>
 
