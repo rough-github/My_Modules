@@ -93,6 +93,13 @@ $button-floating-color: #fff !default;
 $button-floating-size: 40px !default;
 $button-floating-radius: 50% !default;
 
+// 5. Carousel
+// ==========================================================================
+
+$carousel-height: 400px !default;
+$carousel-item-height: $carousel-height / 2 !default;
+$carousel-item-width: $carousel-item-height !default;
+
 // 6. Collapsible
 // ==========================================================================
 

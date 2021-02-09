@@ -40,7 +40,7 @@ module.exports = {
 		// Specify the minimum number of milliseconds for time values.
 		"time-min-milliseconds": 100,
 		// Specify a list of allowed units.
-		"unit-allowed-list": ["px", "%", "rem", "em", "deg", "s", "vh", "fr"],
+		"unit-allowed-list": ["vw","px", "%", "rem", "em", "deg", "s", "vh", "fr"],
 		// Specify a list of disallowed units
 		"unit-disallowed-list": [],
 		// Disallow redundant values in shorthand properties

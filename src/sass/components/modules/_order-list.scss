@@ -1,0 +1,46 @@
+.order-list {
+	list-style-type: none;
+	counter-reset: order-list;
+	& > *:last-child {
+		margin-bottom: 0;
+	}
+	.order-list__item {
+		position: relative;
+		padding-left: 1em;
+		margin-bottom: 10px;
+		&::before {
+			content: counter(order-list) ". ";
+			position: absolute;
+			top: 0;
+			/* left: 0; */
+			left: -10px;
+			color: #e25c00;
+			font-weight: bold;
+			counter-increment: order-list;
+		}
+	}
+}
+
+// ネスト
+.child-order-list {
+	margin-top: 10px;
+	list-style-type: none;
+	counter-reset: child-order-list;
+	& > *:last-child {
+		margin-bottom: 0;
+	}
+	.child-order-list__item {
+		position: relative;
+		padding-left: 1em;
+		margin-top: 10px;
+		&::before {
+			content: counter(child-order-list) ". ";
+			position: absolute;
+			top: 0;
+			/* left: 0; */
+			left: -10px;
+			color: #e25c00;
+			counter-increment: child-order-list;
+		}
+	}
+}

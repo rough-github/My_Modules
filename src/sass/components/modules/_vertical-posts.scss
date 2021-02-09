@@ -1,0 +1,24 @@
+.vertical-posts {
+	list-style-type: none;
+}
+.vertical-posts__item {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #ddd;
+}
+.vertical-posts__item:last-child {
+	padding-top: 0;
+}
+.vertical-posts__header {
+	margin-bottom: 0;
+}
+.vertical-posts__date {
+	font-size: .87rem;
+}
+.vertical-posts__title {
+	text-decoration: none;
+}
+.vertical-posts_title:focus,
+.vertical-posts_title:hover {
+	text-decoration: underline;
+}

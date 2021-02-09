@@ -1,0 +1,138 @@
+// prie-box
+.price-boxes {
+	display: flex;
+	list-style-type: none;
+	align-items: flex-start;
+	justify-content: center;
+}
+.price-boxes__item {
+	flex: 1;
+	margin-right: 2.43%;
+}
+.price-boxes__item:last-child {
+	margin-right: 0;
+}
+@media screen and (max-width: 768px) {
+	.price-boxes {
+		display: block;
+	}
+	.price-boxes__item {
+		margin-right: 0;
+		margin-bottom: 30px;
+	}
+	.price-boxes__item:last-child {
+		margin-bottom: 0;
+	}
+}
+.price-box {
+	border: 1px solid #ddd;
+}
+.price-box__header {
+	padding: 10px;
+	background-color: #e25c00;
+	color: #fff;
+	text-align: center;
+}
+.price-box__title {
+	font-size: 1.12rem;
+}
+.price-box__price {
+	font-size: 1.87rem;
+}
+.price-box__price-unit {
+	font-size: 1rem;
+}
+.price-box__body {
+	padding: 15px;
+}
+.price-box__body > *:last-child {
+	margin-bottom: 0;
+}
+.price-box__lead {
+	margin-bottom: 20px;
+}
+.price-box__features {
+	text-align: center;
+}
+.price-box__features > *:last-child {
+	margin-bottom: 0;
+}
+.price-box__features-header {
+	padding: 5px;
+	margin-bottom: 10px;
+	background-color: #efefef;
+}
+.price-box__features-text {
+	margin-bottom: 20px;
+}
+
+// price-table
+.only-md {
+	display: none;
+}
+@media screen and (max-width: 768px) {
+	.only-md {
+		display: block;
+	}
+}
+.price-table__inner {
+	width: 100%;
+	table-layout: fixed;
+}
+.price-table__header {
+	padding: 10px;
+	background-color: #e25c00;
+	border-right: 1px solid currentColor;
+	color: #fff;
+	text-align: center;
+}
+.price-table__header:last-child {
+	border-right-width: 0;
+}
+.price-table__header-title {
+	font-size: 1.12rem;
+}
+.price-table__price {
+	font-size: 1.87rem;
+}
+.price-table__price-unit {
+	font-size: 1rem;
+}
+.price-table__body-title {
+	padding: 10px;
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	font-weight: bold;
+	text-align: right;
+	vertical-align: middle;
+}
+.price-table__body-text {
+	padding: 10px;
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	text-align: center;
+	vertical-align: middle;
+}
+.price-table__body-text:last-child {
+	border-right: 1px solid #ddd;
+}
+.price-table__body-row:last-child .price-table__body-title,
+.price-table__body-row:last-child .price-table__body-text {
+	border-bottom: 1px solid #ddd;
+}
+@media screen and (max-width: 768px) {
+	.price-table {
+		overflow-x: auto;
+	}
+	.price-table__inner {
+		width: auto;
+		white-space: nowrap;
+	}
+	.price-table__body-title {
+		position: sticky;
+		left: 0;
+		background-color: #fff;
+		box-shadow: 1px 0 #ddd;
+		font-size: .87rem;
+	}
+}
