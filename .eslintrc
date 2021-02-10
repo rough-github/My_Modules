@@ -38,7 +38,7 @@
 		// 関数宣言として記述された関数への上書きを許可しない
 		"no-func-assign": 2,
 		// ネストブロック内での変数や関数宣言を許可しない
-		"no-inner-declarations": 2,
+		"no-inner-declarations": 0,
 		// RegExpコンストラクタ内で無効な正規表現文字列を許可しない
 		"no-invalid-regexp": 2,
 		// Unicodeの特殊な空白文字を許可しない
