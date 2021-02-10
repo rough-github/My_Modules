@@ -1,6 +1,6 @@
 $(function () {
 	let setArea = $('#imgLoad');
-	let imgPass = '../../img/img1';
+	let imgPass = '../../../../img/img';
 	let imgType = '.jpg';
 	let loadNum = 5;
 	let maxNum = 25;

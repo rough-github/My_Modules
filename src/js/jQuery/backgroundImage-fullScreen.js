@@ -1,9 +1,8 @@
-$('body').prepend('<img src="../../img/img1.jpg" id="fullScreen">');
+$('body').prepend('<img src="../../../../img/img1.jpg" id="fullScreen">');
 
 $(function () {
 
 	let setFull = $('#fullScreen');
-	let fullImg = setFull.children('img');
 	let fadeSpeed = 500;
 
 	// 画像の比率

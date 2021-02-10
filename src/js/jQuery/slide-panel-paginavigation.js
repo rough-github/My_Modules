@@ -5,8 +5,8 @@ $(function () {
 	setElm.each(function () {
 		let self = $(this);
 		let selfWidth = self.innerWidth();
-		let selfUl = self.find('ul');
-		let selfLi = selfUl.find('li');
+		let selfUl = self.find('.slidePanel__lists');
+		let selfLi = selfUl.find('.slidePanel__item');
 		let listWidth = selfLi.outerWidth();
 		let listCount = selfLi.length;
 		let slideWidth = listWidth * listCount;
@@ -18,7 +18,7 @@ $(function () {
 		if (selfWidth < slideWidth) {
 			self
 				.append('<a href="javascript:void(0);" class="btnPrev"></a><a href="javascript:void(0);" class="btnNext"></a><div class="pagiNation"></div>')
-				.find('ul')
+				.find('.slidePanel__lists')
 				.wrapAll('<div class="slideWrap" />');
 
 			let pagination = self.find('.pagiNation');
