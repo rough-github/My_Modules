@@ -1,18 +1,19 @@
 $(function () {
 	let setElm = $('.slideShow');
-	let fadeSpeed = 1000;
+	let fadeInSpeed = 1000;
+	let fadeOutSpeed = 500;
 
 	$(window).on("load", function () {
 		setElm.each(function () {
 			let self = $(this);
-			let findUl = self.find('ul');
-			let findLi = findUl.find('li');
-			let findLiFirst = findUl.find('li:first');
+			let findUl = self.find('.slideShow__lists');
+			let findLi = findUl.find('.slideShow__item');
+			let findLiFirst = findUl.find('.slideShow__item:first');
 			let findLiCount = findLi.length;
 			let findImg = findLi.find('img');
 
 			findLi.css({
-				display: 'block',
+				display: 'none',
 				opacity: '0',
 				zIndex: '99'
 			});
@@ -29,9 +30,14 @@ $(function () {
 
 			findLiFirst
 				.addClass('mainActive')
-				.css({ zIndex: '100' })
+				.css({
+					zIndex: '100',
+					display: "block"
+				})
 				.stop()
-				.animate({ opacity: '1' }, fadeSpeed);
+				.animate({
+					opacity: '1'
+				}, fadeInSpeed);
 
 			findLi.each(function (i) {
 				$(this).attr('class', 'viewList' + (i + 1));
@@ -57,21 +63,35 @@ $(function () {
 					let setNum = pnPoint.index(this);
 					let showCont = setNum + 1;
 
-					findUl
-						.find('.viewList' + (showCont))
-						.addClass('mainActive')
-						.stop()
-						.animate({ opacity: '1' }, fadeSpeed, function () {
-								$(this).css({ zIndex: '100' });
-							});
+					setTimeout(function() {
+						// 出現
+						findUl
+							.find('.viewList' + (showCont))
+							.addClass('mainActive')
+							.css({
+								zIndex: '100',
+								display: "block",
+							})
+							.stop()
+							.animate({
+								opacity: '1',
+							}, fadeInSpeed);
+					}, fadeOutSpeed - 50);
+
+					// 消える
 					findUl
 						.find('.viewList' + (showCont))
 						.siblings()
 						.removeClass('mainActive')
 						.stop()
-						.animate({ opacity: '0' }, fadeSpeed, function () {
-								$(this).css({ zIndex: '99' });
+						.animate({
+							opacity: '0',
+						}, fadeOutSpeed, function() {
+							$(this).css({
+								zIndex: '99',
+								display: "none"
 							});
+						});
 					pnPoint.removeClass('pnActive');
 					$(this).addClass('pnActive');
 				});
@@ -102,6 +122,7 @@ $(function () {
 					if (1 == pnNum) {
 						pnLast.click();
 					} else {
+						// click再利用
 						setActive.prev('a').click();
 					}
 				}

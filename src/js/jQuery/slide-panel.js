@@ -5,8 +5,8 @@ $(function () {
 	setElm.each(function () {
 		let self = $(this);
 		let selfWidth = self.innerWidth();
-		let selfUl = self.find('ul');
-		let selfLi = selfUl.find('li');
+		let selfUl = self.find('.slidePanel__lists');
+		let selfLi = selfUl.find('.slidePanel__item');
 		let listWidth = selfLi.outerWidth();
 		let listCount = selfLi.length;
 		let slideWidth = listWidth * listCount;
