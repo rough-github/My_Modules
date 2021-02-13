@@ -53,7 +53,8 @@ $(window).on("load", function() {
 	setInterval(function () {
 		var firstImg = setFull.find('img:first');
 		firstImg.animate({
-			opacity: '0' }, fadeSpeed)
+			opacity: '0'
+		}, fadeSpeed)
 		.next()
 		.animate({ opacity: '1' }, fadeSpeed)
 		.end()

@@ -14,11 +14,11 @@
   <!-- スクロールしてもついてくるナビゲーション -->
   <nav id="menuList">
     <ul class="menu__lists">
-      <li class="menu_item"><a class="menu_link" href="#">≫ WORKS</a></li>
-      <li class="menu_item"><a class="menu_link" href="#">≫ PRODUCT</a></li>
-      <li class="menu_item"><a class="menu_link" href="#">≫ RECRUIT</a></li>
-      <li class="menu_item"><a class="menu_link" href="#">≫ BLOG</a></li>
-      <li class="menu_item"><a class="menu_link" href="#">≫ CONTACT</a></li>
+      <li class="menu__item"><a class="menu__link" href="#">≫ WORKS</a></li>
+      <li class="menu__item"><a class="menu__link" href="#">≫ PRODUCT</a></li>
+      <li class="menu__item"><a class="menu__link" href="#">≫ RECRUIT</a></li>
+      <li class="menu__item"><a class="menu__link" href="#">≫ BLOG</a></li>
+      <li class="menu__item"><a class="menu__link" href="#">≫ CONTACT</a></li>
     </ul>
   </nav><!-- /#menuList -->
 
@@ -78,23 +78,29 @@
 
   </div><!-- /#contents -->
   <style>
+		body {
+			margin: 0;
+		}
 		#menuList {
 			width: 200px;
 			float: left;
 			box-shadow: 0 0 4px #999;
 		}
 
-		#menuList > .menu__lists {
+		#menuList .menu__lists {
+			padding: 0;
+			margin: 0;
 			border-top: #555 1px solid;
 			border-left: #555 1px solid;
 		}
 
-		.menu__lists > .menu__item {
+		.menu__item {
+			list-style-type: none;
 			border-right: #555 1px solid;
 			border-bottom: #555 1px solid;
 		}
 
-		.menu__item > .menu__link {
+		.menu__link {
 			padding: 15px 25px;
 			font-weight: bold;
 			display: block;
@@ -123,7 +129,9 @@
 
   </style>
 
-	<div style="height: 100px;"></div>
+	<div style="
+		height: 100px;
+		clear: both;"></div>
 	<a href="../../../../index.html">戻る</a>
 	<div style="height: 400px;"></div>
 

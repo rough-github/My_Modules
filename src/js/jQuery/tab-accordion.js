@@ -19,6 +19,12 @@ $(function () {
 				contentsArea.slideUp(slideSpeed);
 				$(this).next().slideDown(slideSpeed);
 			}
+		} else {
+			if (window.innerWidth < switchPoint) {
+				contentsArea.slideUp(slideSpeed);
+				$(this).slideDown(slideSpeed);
+				btnElm.removeClass('btnAcv');
+			}
 		}
 	});
 

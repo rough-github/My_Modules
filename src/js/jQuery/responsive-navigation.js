@@ -16,8 +16,30 @@ $(window).on("load", function () {
 				let switchBtn = $('#switchBtn');
 
 				switchBtn.on('click', function () {
-					menuList.slideToggle(slideSpeed);
-					$(this).toggleClass('btnClose');
+					// menuList.slideToggle(slideSpeed);
+					if(!$(this).hasClass("btnClose")) {
+						menuList.css({
+							height: "0",
+							display: "block",
+							opacity: "0"
+						}).stop().animate({
+							height: "225px",
+							opacity: "1"
+						}, 500, "swing")
+						$(this).addClass('btnClose');
+					} else {
+						menuList
+							.stop().animate({
+								height: "0",
+								opacity: "0"
+							}, 500, "swing", function() {
+								menuList.css({
+									display: "none"
+								})
+							})
+						$(this).removeClass('btnClose');
+
+					}
 				});
 			}
 		} else {

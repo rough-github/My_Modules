@@ -80,6 +80,9 @@
 		}
 
 		.globalMenu__list {
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			margin: 0 auto;
 			width: 800px;
 			height: 45px;
@@ -90,7 +93,7 @@
 			list-style-type: none;
 			width: 160px;
 			height: 45px;
-			float: left;
+			/* float: left; */
 			border-left: #aaa 1px solid;
 			box-sizing: border-box;
 		}
@@ -169,6 +172,7 @@
 			}
 
 			#rwdMenuWrap .globalMenu__list {
+				flex-direction: column;
 				width: 100%;
 				display: none;
 			}
