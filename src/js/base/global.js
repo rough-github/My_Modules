@@ -28,43 +28,43 @@ if (typeof define === 'function' && define.amd) {
 
 M.version = '1.0.0';
 
-M.keys = {
-  TAB: 9,
-  ENTER: 13,
-  ESC: 27,
-  ARROW_UP: 38,
-  ARROW_DOWN: 40
-};
+// M.keys = {
+//   TAB: 9,
+//   ENTER: 13,
+//   ESC: 27,
+//   ARROW_UP: 38,
+//   ARROW_DOWN: 40
+// };
 
 /**
  * TabPress Keydown handler
  */
-M.tabPressed = false;
-M.keyDown = false;
-let docHandleKeydown = function(e) {
-  M.keyDown = true;
-  if (e.which === M.keys.TAB || e.which === M.keys.ARROW_DOWN || e.which === M.keys.ARROW_UP) {
-    M.tabPressed = true;
-  }
-};
-let docHandleKeyup = function(e) {
-  M.keyDown = false;
-  if (e.which === M.keys.TAB || e.which === M.keys.ARROW_DOWN || e.which === M.keys.ARROW_UP) {
-    M.tabPressed = false;
-  }
-};
-let docHandleFocus = function(e) {
-  if (M.keyDown) {
-    document.body.classList.add('keyboard-focused');
-  }
-};
-let docHandleBlur = function(e) {
-  document.body.classList.remove('keyboard-focused');
-};
-document.addEventListener('keydown', docHandleKeydown, true);
-document.addEventListener('keyup', docHandleKeyup, true);
-document.addEventListener('focus', docHandleFocus, true);
-document.addEventListener('blur', docHandleBlur, true);
+// M.tabPressed = false;
+// M.keyDown = false;
+// let docHandleKeydown = function(e) {
+//   M.keyDown = true;
+//   if (e.which === M.keys.TAB || e.which === M.keys.ARROW_DOWN || e.which === M.keys.ARROW_UP) {
+//     M.tabPressed = true;
+//   }
+// };
+// let docHandleKeyup = function(e) {
+//   M.keyDown = false;
+//   if (e.which === M.keys.TAB || e.which === M.keys.ARROW_DOWN || e.which === M.keys.ARROW_UP) {
+//     M.tabPressed = false;
+//   }
+// };
+// let docHandleFocus = function(e) {
+//   if (M.keyDown) {
+//     document.body.classList.add('keyboard-focused');
+//   }
+// };
+// let docHandleBlur = function(e) {
+//   document.body.classList.remove('keyboard-focused');
+// };
+// document.addEventListener('keydown', docHandleKeydown, true);
+// document.addEventListener('keyup', docHandleKeyup, true);
+// document.addEventListener('focus', docHandleFocus, true);
+// document.addEventListener('blur', docHandleBlur, true);
 
 /**
  * Initialize jQuery wrapper for plugin
@@ -109,36 +109,36 @@ M.initializeJqueryWrapper = function(plugin, pluginName, classRef) {
  * Automatically initialize components
  * @param {Element} context  DOM Element to search within for components
  */
-M.AutoInit = function(context) {
-  // Use document.body if no context is given
-  let root = !!context ? context : document.body;
+// M.AutoInit = function(context) {
+//   // Use document.body if no context is given
+//   let root = !!context ? context : document.body;
 
-  let registry = {
-    Autocomplete: root.querySelectorAll('.autocomplete:not(.no-autoinit)'),
-    Carousel: root.querySelectorAll('.carousel:not(.no-autoinit)'),
-    Chips: root.querySelectorAll('.chips:not(.no-autoinit)'),
-    Collapsible: root.querySelectorAll('.collapsible:not(.no-autoinit)'),
-    Datepicker: root.querySelectorAll('.datepicker:not(.no-autoinit)'),
-    Dropdown: root.querySelectorAll('.dropdown-trigger:not(.no-autoinit)'),
-    Materialbox: root.querySelectorAll('.materialboxed:not(.no-autoinit)'),
-    Modal: root.querySelectorAll('.modal:not(.no-autoinit)'),
-    Parallax: root.querySelectorAll('.parallax:not(.no-autoinit)'),
-    Pushpin: root.querySelectorAll('.pushpin:not(.no-autoinit)'),
-    ScrollSpy: root.querySelectorAll('.scrollspy:not(.no-autoinit)'),
-    FormSelect: root.querySelectorAll('select:not(.no-autoinit)'),
-    Sidenav: root.querySelectorAll('.sidenav:not(.no-autoinit)'),
-    Tabs: root.querySelectorAll('.tabs:not(.no-autoinit)'),
-    TapTarget: root.querySelectorAll('.tap-target:not(.no-autoinit)'),
-    Timepicker: root.querySelectorAll('.timepicker:not(.no-autoinit)'),
-    Tooltip: root.querySelectorAll('.tooltipped:not(.no-autoinit)'),
-    FloatingActionButton: root.querySelectorAll('.fixed-action-btn:not(.no-autoinit)')
-  };
+//   let registry = {
+//     Autocomplete: root.querySelectorAll('.autocomplete:not(.no-autoinit)'),
+//     Carousel: root.querySelectorAll('.carousel:not(.no-autoinit)'),
+//     Chips: root.querySelectorAll('.chips:not(.no-autoinit)'),
+//     Collapsible: root.querySelectorAll('.collapsible:not(.no-autoinit)'),
+//     Datepicker: root.querySelectorAll('.datepicker:not(.no-autoinit)'),
+//     Dropdown: root.querySelectorAll('.dropdown-trigger:not(.no-autoinit)'),
+//     Materialbox: root.querySelectorAll('.materialboxed:not(.no-autoinit)'),
+//     Modal: root.querySelectorAll('.modal:not(.no-autoinit)'),
+//     Parallax: root.querySelectorAll('.parallax:not(.no-autoinit)'),
+//     Pushpin: root.querySelectorAll('.pushpin:not(.no-autoinit)'),
+//     ScrollSpy: root.querySelectorAll('.scrollspy:not(.no-autoinit)'),
+//     FormSelect: root.querySelectorAll('select:not(.no-autoinit)'),
+//     Sidenav: root.querySelectorAll('.sidenav:not(.no-autoinit)'),
+//     Tabs: root.querySelectorAll('.tabs:not(.no-autoinit)'),
+//     TapTarget: root.querySelectorAll('.tap-target:not(.no-autoinit)'),
+//     Timepicker: root.querySelectorAll('.timepicker:not(.no-autoinit)'),
+//     Tooltip: root.querySelectorAll('.tooltipped:not(.no-autoinit)'),
+//     FloatingActionButton: root.querySelectorAll('.fixed-action-btn:not(.no-autoinit)')
+//   };
 
-  for (let pluginName in registry) {
-    let plugin = M[pluginName];
-    plugin.init(registry[pluginName]);
-  }
-};
+//   for (let pluginName in registry) {
+//     let plugin = M[pluginName];
+//     plugin.init(registry[pluginName]);
+//   }
+// };
 
 /**
  * Generate approximated selector string for a jQuery object

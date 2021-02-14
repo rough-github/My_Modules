@@ -88,11 +88,11 @@
      */
     _setupEventHandlers() {
       this._handleCollapsibleClickBound = this._handleCollapsibleClick.bind(this);
-      this._handleCollapsibleKeydownBound = this._handleCollapsibleKeydown.bind(this);
+      // this._handleCollapsibleKeydownBound = this._handleCollapsibleKeydown.bind(this);
       this.el.addEventListener('click', this._handleCollapsibleClickBound);
-      this.$headers.each((header) => {
-        header.addEventListener('keydown', this._handleCollapsibleKeydownBound);
-      });
+      // this.$headers.each((header) => {
+      //   header.addEventListener('keydown', this._handleCollapsibleKeydownBound);
+      // });
     }
 
     /**
@@ -100,9 +100,9 @@
      */
     _removeEventHandlers() {
       this.el.removeEventListener('click', this._handleCollapsibleClickBound);
-      this.$headers.each((header) => {
-        header.removeEventListener('keydown', this._handleCollapsibleKeydownBound);
-      });
+      // this.$headers.each((header) => {
+      //   header.removeEventListener('keydown', this._handleCollapsibleKeydownBound);
+      // });
     }
 
     /**
@@ -132,11 +132,11 @@
      * Handle Collapsible Keydown
      * @param {Event} e
      */
-    _handleCollapsibleKeydown(e) {
-      if (e.keyCode === 13) {
-        this._handleCollapsibleClickBound(e);
-      }
-    }
+    // _handleCollapsibleKeydown(e) {
+    //   if (e.keyCode === 13) {
+    //     this._handleCollapsibleClickBound(e);
+    //   }
+    // }
 
     /**
      * Animate in collapsible slide

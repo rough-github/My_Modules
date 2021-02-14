@@ -146,18 +146,21 @@
       this._handleCarouselReleaseBound = this._handleCarouselRelease.bind(this);
       this._handleCarouselClickBound = this._handleCarouselClick.bind(this);
 
+			// スマホ用のタップイベントが設定されているか
       if (typeof window.ontouchstart !== 'undefined') {
         this.el.addEventListener('touchstart', this._handleCarouselTapBound);
         this.el.addEventListener('touchmove', this._handleCarouselDragBound);
         this.el.addEventListener('touchend', this._handleCarouselReleaseBound);
       }
 
+			// PC用のイベント
       this.el.addEventListener('mousedown', this._handleCarouselTapBound);
       this.el.addEventListener('mousemove', this._handleCarouselDragBound);
       this.el.addEventListener('mouseup', this._handleCarouselReleaseBound);
       this.el.addEventListener('mouseleave', this._handleCarouselReleaseBound);
       this.el.addEventListener('click', this._handleCarouselClickBound);
 
+			// indicator用イベント
       if (this.showIndicators && this.$indicators) {
         this._handleIndicatorClickBound = this._handleIndicatorClick.bind(this);
         this.$indicators.find('.indicator__item').each((el, i) => {
@@ -165,7 +168,7 @@
         });
       }
 
-      // Resize
+      // Resize用イベント
       let throttledResize = M.throttle(this._handleResize, 200);
       this._handleThrottledResizeBound = throttledResize.bind(this);
 
@@ -176,23 +179,28 @@
      * Remove Event Handlers
      */
     _removeEventHandlers() {
+			// スマホ用のタップイベント
       if (typeof window.ontouchstart !== 'undefined') {
         this.el.removeEventListener('touchstart', this._handleCarouselTapBound);
         this.el.removeEventListener('touchmove', this._handleCarouselDragBound);
         this.el.removeEventListener('touchend', this._handleCarouselReleaseBound);
       }
+
+			// PC用イベント
       this.el.removeEventListener('mousedown', this._handleCarouselTapBound);
       this.el.removeEventListener('mousemove', this._handleCarouselDragBound);
       this.el.removeEventListener('mouseup', this._handleCarouselReleaseBound);
       this.el.removeEventListener('mouseleave', this._handleCarouselReleaseBound);
       this.el.removeEventListener('click', this._handleCarouselClickBound);
 
+			// indicator用イベント
       if (this.showIndicators && this.$indicators) {
         this.$indicators.find('.indicator__item').each((el, i) => {
           el.removeEventListener('click', this._handleIndicatorClickBound);
         });
       }
 
+			// resize用イベント
       window.removeEventListener('resize', this._handleThrottledResizeBound);
     }
 
@@ -201,6 +209,7 @@
      * @param {Event} e
      */
     _handleCarouselTap(e) {
+			// タップ時の情報
       // Fixes firefox draggable image bug
       if (e.type === 'mousedown' && $(e.target).is('.carousel__img')) {
         e.preventDefault();
@@ -223,6 +232,7 @@
      * @param {Event} e
      */
     _handleCarouselDrag(e) {
+			// ドラッグ処理
       let x, y, delta, deltaY;
       if (this.pressed) {
         x = this._xpos(e);
@@ -260,6 +270,7 @@
      * @param {Event} e
      */
     _handleCarouselRelease(e) {
+			// ドラッグ後の慣性処理
       if (this.pressed) {
         this.pressed = false;
       } else {
@@ -298,6 +309,7 @@
      * @param {Event} e
      */
     _handleCarouselClick(e) {
+			// クリックしたものの方向に回転
       // Disable clicks if carousel was dragged.
       if (this.dragged) {
         e.preventDefault();
@@ -323,6 +335,7 @@
      * @param {Event} e
      */
     _handleIndicatorClick(e) {
+			// indicatorの示すアイテムまで回転
       e.stopPropagation();
 
       let indicator = $(e.target).closest('.indicator__item');

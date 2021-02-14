@@ -84,8 +84,8 @@
       this._handleDocumentClickBound = this._handleDocumentClick.bind(this);
       this._handleDocumentTouchmoveBound = this._handleDocumentTouchmove.bind(this);
       this._handleDropdownClickBound = this._handleDropdownClick.bind(this);
-      this._handleDropdownKeydownBound = this._handleDropdownKeydown.bind(this);
-      this._handleTriggerKeydownBound = this._handleTriggerKeydown.bind(this);
+      // this._handleDropdownKeydownBound = this._handleDropdownKeydown.bind(this);
+      // this._handleTriggerKeydownBound = this._handleTriggerKeydown.bind(this);
       this._setupEventHandlers();
     }
 
@@ -120,7 +120,7 @@
      */
     _setupEventHandlers() {
       // Trigger keydown handler
-      this.el.addEventListener('keydown', this._handleTriggerKeydownBound);
+      // this.el.addEventListener('keydown', this._handleTriggerKeydownBound);
 
       // Item click handler
       this.dropdownEl.addEventListener('click', this._handleDropdownClickBound);
@@ -144,7 +144,7 @@
      * Remove Event Handlers
      */
     _removeEventHandlers() {
-      this.el.removeEventListener('keydown', this._handleTriggerKeydownBound);
+      // this.el.removeEventListener('keydown', this._handleTriggerKeydownBound);
       this.dropdownEl.removeEventListener('click', this._handleDropdownClickBound);
 
       if (this.options.hover) {
@@ -161,7 +161,7 @@
       document.body.addEventListener('click', this._handleDocumentClickBound, true);
       document.body.addEventListener('touchend', this._handleDocumentClickBound);
       document.body.addEventListener('touchmove', this._handleDocumentTouchmoveBound);
-      this.dropdownEl.addEventListener('keydown', this._handleDropdownKeydownBound);
+      // this.dropdownEl.addEventListener('keydown', this._handleDropdownKeydownBound);
     }
 
     _removeTemporaryEventHandlers() {
@@ -169,7 +169,7 @@
       document.body.removeEventListener('click', this._handleDocumentClickBound, true);
       document.body.removeEventListener('touchend', this._handleDocumentClickBound);
       document.body.removeEventListener('touchmove', this._handleDocumentTouchmoveBound);
-      this.dropdownEl.removeEventListener('keydown', this._handleDropdownKeydownBound);
+      // this.dropdownEl.removeEventListener('keydown', this._handleDropdownKeydownBound);
     }
 
     _handleClick(e) {
@@ -223,13 +223,13 @@
       this.isTouchMoving = false;
     }
 
-    _handleTriggerKeydown(e) {
-      // ARROW DOWN OR ENTER WHEN SELECT IS CLOSED - open Dropdown
-      if ((e.which === M.keys.ARROW_DOWN || e.which === M.keys.ENTER) && !this.isOpen) {
-        e.preventDefault();
-        this.open();
-      }
-    }
+    // _handleTriggerKeydown(e) {
+    //   // ARROW DOWN OR ENTER WHEN SELECT IS CLOSED - open Dropdown
+    //   if ((e.which === M.keys.ARROW_DOWN || e.which === M.keys.ENTER) && !this.isOpen) {
+    //     e.preventDefault();
+    //     this.open();
+    //   }
+    // }
 
     /**
      * Handle Document Touchmove
@@ -258,81 +258,81 @@
      * Handle Dropdown Keydown
      * @param {Event} e
      */
-    _handleDropdownKeydown(e) {
-      if (e.which === M.keys.TAB) {
-        e.preventDefault();
-        this.close();
+    // _handleDropdownKeydown(e) {
+    //   if (e.which === M.keys.TAB) {
+    //     e.preventDefault();
+    //     this.close();
 
-        // Navigate down dropdown list
-      } else if ((e.which === M.keys.ARROW_DOWN || e.which === M.keys.ARROW_UP) && this.isOpen) {
-        e.preventDefault();
-        let direction = e.which === M.keys.ARROW_DOWN ? 1 : -1;
-        let newFocusedIndex = this.focusedIndex;
-        let foundNewIndex = false;
-        do {
-          newFocusedIndex = newFocusedIndex + direction;
+    //     // Navigate down dropdown list
+    //   } else if ((e.which === M.keys.ARROW_DOWN || e.which === M.keys.ARROW_UP) && this.isOpen) {
+    //     e.preventDefault();
+    //     let direction = e.which === M.keys.ARROW_DOWN ? 1 : -1;
+    //     let newFocusedIndex = this.focusedIndex;
+    //     let foundNewIndex = false;
+    //     do {
+    //       newFocusedIndex = newFocusedIndex + direction;
 
-          if (
-            !!this.dropdownEl.children[newFocusedIndex] &&
-            this.dropdownEl.children[newFocusedIndex].tabIndex !== -1
-          ) {
-            foundNewIndex = true;
-            break;
-          }
-        } while (newFocusedIndex < this.dropdownEl.children.length && newFocusedIndex >= 0);
+    //       if (
+    //         !!this.dropdownEl.children[newFocusedIndex] &&
+    //         this.dropdownEl.children[newFocusedIndex].tabIndex !== -1
+    //       ) {
+    //         foundNewIndex = true;
+    //         break;
+    //       }
+    //     } while (newFocusedIndex < this.dropdownEl.children.length && newFocusedIndex >= 0);
 
-        if (foundNewIndex) {
-          this.focusedIndex = newFocusedIndex;
-          this._focusFocusedItem();
-        }
+    //     if (foundNewIndex) {
+    //       this.focusedIndex = newFocusedIndex;
+    //       this._focusFocusedItem();
+    //     }
 
-        // ENTER selects choice on focused item
-      } else if (e.which === M.keys.ENTER && this.isOpen) {
-        // Search for <a> and <button>
-        let focusedElement = this.dropdownEl.children[this.focusedIndex];
-        let $activatableElement = $(focusedElement)
-          .find('a, button')
-          .first();
+    //     // ENTER selects choice on focused item
+    //   } else if (e.which === M.keys.ENTER && this.isOpen) {
+    //     // Search for <a> and <button>
+    //     let focusedElement = this.dropdownEl.children[this.focusedIndex];
+    //     let $activatableElement = $(focusedElement)
+    //       .find('a, button')
+    //       .first();
 
-        // Click a or button tag if exists, otherwise click li tag
-        if (!!$activatableElement.length) {
-          $activatableElement[0].click();
-        } else if (!!focusedElement) {
-          focusedElement.click();
-        }
+    //     // Click a or button tag if exists, otherwise click li tag
+    //     if (!!$activatableElement.length) {
+    //       $activatableElement[0].click();
+    //     } else if (!!focusedElement) {
+    //       focusedElement.click();
+    //     }
 
-        // Close dropdown on ESC
-      } else if (e.which === M.keys.ESC && this.isOpen) {
-        e.preventDefault();
-        this.close();
-      }
+    //     // Close dropdown on ESC
+    //   } else if (e.which === M.keys.ESC && this.isOpen) {
+    //     e.preventDefault();
+    //     this.close();
+    //   }
 
-      // CASE WHEN USER TYPE LETTERS
-      let letter = String.fromCharCode(e.which).toLowerCase(),
-        nonLetters = [9, 13, 27, 38, 40];
-      if (letter && nonLetters.indexOf(e.which) === -1) {
-        this.filterQuery.push(letter);
+    //   // CASE WHEN USER TYPE LETTERS
+    //   let letter = String.fromCharCode(e.which).toLowerCase(),
+    //     nonLetters = [9, 13, 27, 38, 40];
+    //   if (letter && nonLetters.indexOf(e.which) === -1) {
+    //     this.filterQuery.push(letter);
 
-        let string = this.filterQuery.join(''),
-          newOptionEl = $(this.dropdownEl)
-            .find('li')
-            .filter((el) => {
-              return (
-                $(el)
-                  .text()
-                  .toLowerCase()
-                  .indexOf(string) === 0
-              );
-            })[0];
+    //     let string = this.filterQuery.join(''),
+    //       newOptionEl = $(this.dropdownEl)
+    //         .find('li')
+    //         .filter((el) => {
+    //           return (
+    //             $(el)
+    //               .text()
+    //               .toLowerCase()
+    //               .indexOf(string) === 0
+    //           );
+    //         })[0];
 
-        if (newOptionEl) {
-          this.focusedIndex = $(newOptionEl).index();
-          this._focusFocusedItem();
-        }
-      }
+    //     if (newOptionEl) {
+    //       this.focusedIndex = $(newOptionEl).index();
+    //       this._focusFocusedItem();
+    //     }
+    //   }
 
-      this.filterTimeout = setTimeout(this._resetFilterQueryBound, 1000);
-    }
+    //   this.filterTimeout = setTimeout(this._resetFilterQueryBound, 1000);
+    // }
 
     /**
      * Setup dropdown
